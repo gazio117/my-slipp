@@ -25,42 +25,8 @@
 </head>
 
 <body>
-  <header style="background-color: aliceblue">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h4 class="col-md-1" style="color:gray"><a href="/">SLiPP</a></h4>
-          <strong><a href="login">로그인</a></strong>
-          &nbsp;&nbsp;
-          <strong><a href="form.html">회원가입</a></strong>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- HEADER END-->
+  {{> /include/navigation}}
 
-  <!-- LOGO HEADER END-->
-  <section class="menu-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="navbar-collapse collapse ">
-            <ul id="menu-top" class="nav navbar-nav navbar-right">
-              <li><a class="menu-top-active" href="list">사용자리스트</a></li>
-              <li><a href="ui.html">UI Elements</a></li>
-              <li><a href="table.html">Data Tables</a></li>
-              <li><a href="forms.html">Forms</a></li>
-              <li><a href="login.html">Login Page</a></li>
-              <li><a href="blank.html">Blank Page</a></li>
-
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- MENU SECTION END-->
   <div class="content-wrapper">
     <div class="container">
       <div class="row">
@@ -88,10 +54,11 @@
                   <tbody>
                     {{#users}}
                     <tr>
-                      <td class="col-md-1">1</td>
-                      <td class="col-md-2">{{userid}}</td>
-                      <td class="col-md-2">{{username}}</td>
-                      <td class="col-md-2">{{useremail}}</td>
+                      <td class="col-md-2">{{id}}</td>
+                      <td class="col-md-3">{{userid}}</td>
+                      <td class="col-md-3">{{username}}</td>
+                      <td class="col-md-3">{{useremail}}</td>
+                      <td><a href="/users/{{id}}/form" class="btn btn-success" role="button">수정</a></td>
                     </tr>
                     {{/users}}
                   </tbody>

@@ -25,57 +25,23 @@
 </head>
 
 <body>
-    <header style="background-color: aliceblue">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="col-md-1" style="color:gray"><a href="/">SLiPP</a></h4>
-            <strong><a href="login">로그인</a></strong>
-            &nbsp;&nbsp;
-            <strong><a href="form.html">회원가입</a></strong>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- HEADER END-->
+  {{> /include/navigation}}  
   
-    <!-- LOGO HEADER END-->
-    <section class="menu-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="navbar-collapse collapse ">
-              <ul id="menu-top" class="nav navbar-nav navbar-right">
-                <li><a href="list">사용자리스트</a></li>
-                <li><a href="ui.html">UI Elements</a></li>
-                <li><a href="table.html">Data Tables</a></li>
-                <li><a href="forms.html">Forms</a></li>
-                <li><a href="login.html">Login Page</a></li>
-                <li><a href="blank.html">Blank Page</a></li>
-  
-              </ul>
-            </div>
-          </div>
-  
-        </div>
-      </div>
-    </section>
-
-  <!-- MENU SECTION END-->
   <div class="content-wrapper">
     <div class="container">
       <div class="row">
         <div class="col-md-12"></br>
-          <h1 class="page-head-line">회원 가입</h1></br>
+          <h1 class="page-head-line">정보 수정</h1></br>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-
-          <form action="/create" method="POST">
+          {{#user}}
+          <form name="question" action="/users/{{id}}" method="POST">
+            <input type="hidden" name="_method" value="put">
             <div class="form-group">
               <label for="userid">ID</label>
-              <input type="text" class="form-control" name="userid" placeholder="ID">
+              <input type="text" class="form-control" name="userid" placeholder="ID" value="{{userid}}">
             </div>
             <div class="form-group">
               <label for="userpassword">Password</label>
@@ -83,16 +49,16 @@
             </div>
             <div class="form-group">
               <label for="username">Name</label>
-              <input type="text" class="form-control" name="username" placeholder="Name">
+              <input type="text" class="form-control" name="username" placeholder="Name" value="{{username}}">
             </div>
             <div class="form-group">
               <label for="useremail">Email address</label>
               <input type="email" class="form-control" name="useremail" aria-describedby="emailHelp"
-                placeholder="Email">
+                placeholder="Email" value="{{useremail}}">
             </div></br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">수정</button>
           </form>
-
+          {{/user}}
         </div>
       </div>
     </div>
