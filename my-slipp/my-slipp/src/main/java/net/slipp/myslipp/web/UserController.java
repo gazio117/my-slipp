@@ -1,5 +1,7 @@
 package net.slipp.myslipp.web;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,34 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
     
+    @GetMapping("/loginForm")
+    public String loginForm() {
+        return "user/login";
+    }
+
+    @PostMapping("/login")
+    public String login(String userid, String userpassword, HttpSession session) {
+        System.out.println("userid : " + userid + ", userpassword : " + userpassword);
+        User user = userRepository.findByUserid(userid);
+        if (user == null) {
+            System.out.println("Login Failed!");
+            return "redirect:/users/loginForm";
+        }
+        if (!userpassword.equals(user.getUserpassword())) {
+            System.out.println("Login Failed!");
+            return "redirect:/users/loginForm";         
+        }
+        session.setAttribute("user", user);
+        System.out.println("Login Success!");
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user");
+        return "redirect:/";
+    }
+
     @GetMapping("/form")
     public String form() {
         return "user/form";

@@ -1,0 +1,1 @@
+INSERT INTO USER (ID, USERID, USERPASSWORD, USERNAME, USEREMAIL) VALUES (1, 'miroku', '1234', '미로쿠', 'miroku@miroku.com');
