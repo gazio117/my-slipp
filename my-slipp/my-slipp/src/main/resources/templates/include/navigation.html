@@ -3,14 +3,15 @@
       <div class="row">
         <div class="col-md-12">
           <h4 class="col-md-1" style="color:gray"><a href="/">SLiPP</a></h4>
-          {{^user}}
-          <strong><a href="/users/loginForm">로그인</a></strong>
-          {{/user}}
-          {{#user}}
-          <strong><a href="/users/logout">로그아웃</a></strong>
-          {{/user}}
-          &nbsp;&nbsp;
+          {{^sessionedUser}}
+          <strong><a href="/users/loginForm">로그인</a></strong>&nbsp;&nbsp;
           <strong><a href="/users/form">회원가입</a></strong>
+          {{/sessionedUser}}
+          {{#sessionedUser}}
+          <strong><a href="/users/logout">로그아웃</a></strong>&nbsp;&nbsp;
+          <strong><a href="/users/{{id}}/form">정보수정</a></strong>
+          {{/sessionedUser}}
+          
         </div>
       </div>
     </div>
