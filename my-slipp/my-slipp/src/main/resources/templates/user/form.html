@@ -16,6 +16,8 @@
   <link href="/assets/css/font-awesome.css" rel="stylesheet" />
   <!-- CUSTOM STYLE  -->
   <link href="/assets/css/style.css" rel="stylesheet" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/assets/css/AdminLTE.min.css">
   <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -25,39 +27,39 @@
 </head>
 
 <body>
-  {{> include/navigation}}  
+  {{> include/navigation}}
 
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color: white">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12"></br>
-          <h1 class="page-head-line">회원 가입</h1></br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <i class="fa fa-user fa-fw"></i> 회원가입
+        </div></br>
+        <div class="row center-block">
+          <div class="col-md-12">
 
-          <form name="question" action="/users" method="POST">
-            <div class="form-group">
-              <label for="userid">ID</label>
-              <input type="text" class="form-control" name="userid" placeholder="ID">
-            </div>
-            <div class="form-group">
-              <label for="userpassword">Password</label>
-              <input type="password" class="form-control" name="userpassword" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="username">Name</label>
-              <input type="text" class="form-control" name="username" placeholder="Name">
-            </div>
-            <div class="form-group">
-              <label for="useremail">Email address</label>
-              <input type="email" class="form-control" name="useremail" aria-describedby="emailHelp"
-                placeholder="Email">
-            </div></br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+            <form name="question" action="/users" method="POST">
+              <div class="form-group">
+                <label for="userid">ID</label>
+                <input type="text" class="form-control" name="userid" placeholder="ID">
+              </div>
+              <div class="form-group">
+                <label for="userpassword">Password</label>
+                <input type="password" class="form-control" name="userpassword" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="username">Name</label>
+                <input type="text" class="form-control" name="username" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="useremail">Email address</label>
+                <input type="email" class="form-control" name="useremail" aria-describedby="emailHelp"
+                  placeholder="Email">
+              </div>
+              <button type="submit" class="btn btn-primary pull-right">Submit</button></br></br>
+            </form>
 
+          </div>
         </div>
       </div>
     </div>

@@ -16,6 +16,8 @@
   <link href="/assets/css/font-awesome.css" rel="stylesheet" />
   <!-- CUSTOM STYLE  -->
   <link href="/assets/css/style.css" rel="stylesheet" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/assets/css/AdminLTE.min.css">
   <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -27,7 +29,49 @@
 <body>
   {{> include/navigation}}
 
-  <h1>Hello, world!</h1>
+  <div class="content-wrapper" style="background-color: white">
+    <div class="container">
+      <!-- Notifications-->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <i class="fa fa-comments fa-fw"></i> QnA
+        </div></br>
+
+        <div class="panel-body">
+          <div class="list-group">
+            {{#questions}}
+            <a href="/questions/{{id}}" class="list-group-item">
+              <i class="fa fa-user fa-fw"></i> {{writer.userid}} </br>
+              <span class="pull-right text-muted small"><em class="time">{{createDate}}</em></span>
+              <span class="subject" style="font-size: 20px">{{title}}</span>
+              <span class="point">[8]</span>
+            </a>
+            {{/questions}}
+          </div>
+          <!-- /.list-group -->
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
+              <ul class="pagination center-block" style="display:inline-block;">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">»</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 qna-write">
+              <a href="/questions/form" class="btn btn-primary pull-right" role="button">질문하기</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--End Notifications-->
+    </div>
+  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 

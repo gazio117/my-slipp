@@ -33,37 +33,22 @@
     <div class="container">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <i class="fa fa-users fa-fw"></i> 사용자리스트
+          <i class="fa fa-comments fa-fw"></i> QnA
         </div></br>
-        <div class="row">
+        <div class="row center-block">
           <div class="col-md-12">
-            <!--    Hover Rows  -->
-            <div class="panel-body">
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>NO.</th>
-                      <th>아이디</th>
-                      <th>이름</th>
-                      <th>이메일</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#users}}
-                    <tr>
-                      <td class="col-md-2">{{id}}</td>
-                      <td class="col-md-3">{{userid}}</td>
-                      <td class="col-md-3">{{username}}</td>
-                      <td class="col-md-3">{{useremail}}</td>
-                      <td><a href="/users/{{id}}/form" class="btn btn-primary" role="button">수정</a></td>
-                    </tr>
-                    {{/users}}
-                  </tbody>
-                </table>
+            <form name="question" action="/questions" method="POST">
+              <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="제목">
               </div>
-            </div>
-            <!-- End  Hover Rows  -->
+              <div class="form-group">
+                <label for="contents">내용</label>
+                <textarea name="contents" id="contents" rows="5" class="form-control"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary pull-right">질문하기</button></br></br>
+            </form>
+
           </div>
         </div>
       </div>
@@ -71,11 +56,11 @@
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-  <!-- CORE JQUERY SCRIPTS -->
-  <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-  <!-- BOOTSTRAP SCRIPTS  -->
-  <script src="/webjars/bootstrap/4.3.1/js/bootstrap.js"></script>
+  <script src="/webjars/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="/webjars/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
